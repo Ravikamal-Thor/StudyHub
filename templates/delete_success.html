@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Failed</title>
+    <title>Delete Successful</title>
 
     <link rel="stylesheet"
     href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
 
 <div class="form-container">
 
     <div class="form-card">
 
-        <h1 style="color:red;">
-            Login Failed
-        </h1>
+        <h1>🗑️ Delete Successful</h1>
 
         <p class="subtitle">
-            Invalid Username or Password
+            Student record deleted successfully.
         </p>
 
-        <a href="/">
-            <button>
-                Try Again
+        <a href="/dashboard">
+            <button type="button">
+                Back to Dashboard
             </button>
         </a>
 

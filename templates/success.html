@@ -15,8 +15,8 @@
 <div class="dashboard-container">
 
     <div class="dashboard-header">
-        <h1>Student Management System</h1>
-        <p>Welcome Administrator</p>
+    <h1>Student Management System</h1>
+    <p>Administration Dashboard</p>
     </div>
 
     <div class="dashboard-cards">
@@ -39,11 +39,30 @@
             <p>Search student by ID</p>
         </a>
 
+      <a href="/updatestudent" class="card">
+    <h2>✏️</h2>
+    <h3>Update Student</h3>
+    <p>Update student information</p>
+</a>
+
+<a href="/deletestudent" class="card">
+    <h2>🗑️</h2>
+    <h3>Delete Student</h3>
+    <p>Delete student records</p>
+</a>
+
         <a href="/logout" class="card logout-card">
             <h2>🚪</h2>
             <h3>Logout</h3>
             <p>Exit the system</p>
         </a>
+        <div class="stats-card">
+
+    <h2>Total Students</h2>
+
+    <h1>{{ total_students }}</h1>
+
+</div>
 
     </div>
 

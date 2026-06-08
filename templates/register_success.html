@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Successful</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>✅ Registration Successful</h1>
+
+        <p class="subtitle">
+            Student has been registered successfully.
+        </p>
+
+        <br>
+
+        <a href="/register">
+            <button type="button">
+                Register Another Student
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/dashboard">
+            <button type="button" class="secondary-btn">
+                Go To Dashboard
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

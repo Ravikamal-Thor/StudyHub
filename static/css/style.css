@@ -8,7 +8,11 @@
 }
 
 body{
-    background:#f4f6f9;
+    background:linear-gradient(
+        135deg,
+        #e0f2fe,
+        #f8fafc
+    );
 }
 
 /* LOGIN PAGE */
@@ -301,4 +305,72 @@ tr:hover{
 
 .dashboard-link:hover{
     background:#4b5563;
+}
+.form-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f4f6f9;
+}
+
+.form-card{
+    width:500px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+}
+
+.form-card h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.form-card form{
+    width:100%;
+}
+
+.form-card input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.form-card button{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.navbar{
+    background:#1e3a8a;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#93c5fd;
 }

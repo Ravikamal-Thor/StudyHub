@@ -70,7 +70,7 @@ def savestudent():
 
     cursor.close()
 
-    return render_template("register_success.html")
+    return "Student Registered Successfully"
 
 @app.route("/getstudents")
 def getstudents():
@@ -120,21 +120,7 @@ def logout():
 
 @app.route("/dashboard")
 def dashboard():
-
-    cursor = db.cursor()
-
-    cursor.execute(
-        "SELECT COUNT(*) FROM studentdetails"
-    )
-
-    total_students = cursor.fetchone()[0]
-
-    cursor.close()
-
-    return render_template(
-        "success.html",
-        total_students=total_students
-    )
+    return render_template("success.html")
 
 @app.route("/updatestudent")
 def updatestudent():
@@ -145,25 +131,26 @@ def updatestudent():
 def updaterecord():
 
     student_id = request.form["student_id"]
-    name = request.form["student_name"]
     phone = request.form["student_phone"]
+    branch = request.form["student_branch"]
 
     cursor = db.cursor()
 
     cursor.execute(
-    """
-    UPDATE studentdetails
-    SET student_name=%s,
-        student_phone=%s
-    WHERE student_id=%s
-    """,
-    (name, phone, student_id)
-)
+        """
+        UPDATE studentdetails
+        SET student_phone=%s,
+            student_branch=%s
+        WHERE student_id=%s
+        """,
+        (phone, branch, student_id)
+    )
+
     db.commit()
 
     cursor.close()
 
-    return render_template("update_success.html")
+    return "Student Updated Successfully"
 
 @app.route("/deletestudent")
 def deletestudent():
@@ -189,7 +176,7 @@ def deleterecord():
 
     cursor.close()
 
-    return render_template("delete_success.html")
+    return "Student Deleted Successfully"
 
 if __name__ == "__main__":
     app.run(debug=True)

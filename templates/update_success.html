@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Failed</title>
+    <title>Update Successful</title>
 
     <link rel="stylesheet"
     href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
 
 <div class="form-container">
 
     <div class="form-card">
 
-        <h1 style="color:red;">
-            Login Failed
-        </h1>
+        <h1>✅ Update Successful</h1>
 
         <p class="subtitle">
-            Invalid Username or Password
+            Student details updated successfully.
         </p>
 
-        <a href="/">
-            <button>
-                Try Again
+        <a href="/dashboard">
+            <button type="button">
+                Back to Dashboard
             </button>
         </a>
 

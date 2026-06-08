@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+    <h2>SMS Portal</h2>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/register">Register</a>
+
+        <a href="/getstudents">Students</a>
+
+        <a href="/findstudent">Find</a>
+
+        <a href="/updatestudent">Update</a>
+
+        <a href="/deletestudent">Delete</a>
+
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</div>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Update Student</h1>
+
+        <p class="subtitle">
+            Modify Student Details
+        </p>
+
+        <form action="/updaterecord" method="POST">
+
+            <label>Student ID</label>
+            <input type="number"
+                   name="student_id"
+                   required>
+
+             <label>New Student Name</label>
+             <input type="text"
+             name="student_name"
+             required>
+
+            <label>New Phone Number</label>
+            <input type="text"
+            name="student_phone"
+            maxlength="10"
+            required>
+
+            <button type="submit">
+                Update Student
+            </button>
+
+            <br><br>
+
+            <a href="/dashboard">
+           <button type="button" class="secondary-btn">
+            Dashboard
+           </button>
+           </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
