@@ -1,0 +1,304 @@
+/* GENERAL */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* LOGIN PAGE */
+
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.container h2{
+    margin-bottom:20px;
+    color:#1e3a8a;
+}
+
+form{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+    width:400px;
+}
+
+label{
+    display:block;
+    margin-top:10px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+/* DASHBOARD */
+
+.dashboard-container{
+    padding:40px;
+}
+
+.dashboard-header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.dashboard-header h1{
+    color:#1e3a8a;
+}
+
+.dashboard-header p{
+    color:#666;
+    margin-top:10px;
+}
+
+.dashboard-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    text-decoration:none;
+    color:#333;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#2563eb;
+}
+
+.logout-card h3{
+    color:#dc2626;
+}
+
+/* REGISTER PAGE */
+
+.form-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.form-card{
+    width:600px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+}
+
+.form-card h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#1e3a8a;
+}
+
+.secondary-btn{
+    background:#6b7280;
+}
+
+.secondary-btn:hover{
+    background:#4b5563;
+}
+
+/* STUDENTS TABLE */
+
+.table-container{
+    width:95%;
+    margin:30px auto;
+}
+
+.table-container h1{
+    text-align:center;
+    color:#1e3a8a;
+}
+
+.table-container h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.15);
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f3f4f6;
+}
+
+/* FIND STUDENT */
+
+.search-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.search-card{
+    width:500px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+}
+
+.search-card h1{
+    text-align:center;
+    color:#1e3a8a;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin:15px 0 25px;
+}
+
+/* STUDENT RESULT */
+
+.result-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.result-card{
+    width:700px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+}
+
+.result-card h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:15px;
+    border-bottom:1px solid #ddd;
+}
+
+.info-row span:first-child{
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.not-found{
+    text-align:center;
+    color:red;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.action-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    margin-top:30px;
+}
+
+/* FAILURE PAGE */
+
+.error-card{
+    width:400px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+}
+
+.error-card h1{
+    color:#dc2626;
+    margin-bottom:15px;
+}
+
+.error-card p{
+    color:#555;
+    margin-bottom:20px;
+}
+
+/* COMMON LINKS */
+
+.dashboard-link{
+    display:inline-block;
+    background:#6b7280;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+}
+
+.dashboard-link:hover{
+    background:#4b5563;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="result-container">
+
+    <div class="result-card">
+
+        <h1>Student Details</h1>
+
+        {% if student %}
+
+        <div class="student-info">
+
+            <div class="info-row">
+                <span>ID</span>
+                <span>{{ student[0] }}</span>
+            </div>
+
+            <div class="info-row">
+                <span>Name</span>
+                <span>{{ student[1] }}</span>
+            </div>
+
+            <div class="info-row">
+                <span>Age</span>
+                <span>{{ student[2] }}</span>
+            </div>
+
+            <div class="info-row">
+                <span>College</span>
+                <span>{{ student[3] }}</span>
+            </div>
+
+            <div class="info-row">
+                <span>Phone</span>
+                <span>{{ student[4] }}</span>
+            </div>
+
+            <div class="info-row">
+                <span>Branch</span>
+                <span>{{ student[5] }}</span>
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="not-found">
+            Student Not Found
+        </div>
+
+        {% endif %}
+
+        <div class="action-buttons">
+
+            <a href="/findstudent" class="dashboard-link">
+                Search Again
+            </a>
+
+            <a href="/getstudents" class="dashboard-link">
+                Get Students
+            </a>
+
+          <a href="/dashboard">
+                Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

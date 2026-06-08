@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <h1>Student Management System</h1>
+        <p>Welcome Administrator</p>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <a href="/register" class="card">
+            <h2>📝</h2>
+            <h3>Register Student</h3>
+            <p>Add new student details</p>
+        </a>
+
+        <a href="/getstudents" class="card">
+            <h2>📋</h2>
+            <h3>Get Students</h3>
+            <p>View all registered students</p>
+        </a>
+
+        <a href="/findstudent" class="card">
+            <h2>🔍</h2>
+            <h3>Find Student</h3>
+            <p>Search student by ID</p>
+        </a>
+
+        <a href="/logout" class="card logout-card">
+            <h2>🚪</h2>
+            <h3>Logout</h3>
+            <p>Exit the system</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

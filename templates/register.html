@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Student</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Student Registration</h1>
+
+        <form action="/savestudent" method="POST">
+
+            <label>Student Name</label>
+            <input
+                type="text"
+                name="student_name"
+                placeholder="Enter Student Name"
+                required
+            >
+
+            <label>Age</label>
+            <input
+                type="number"
+                name="student_age"
+                placeholder="Enter Age"
+                required
+            >
+
+            <label>College</label>
+            <input
+                type="text"
+                name="student_college"
+                placeholder="Enter College Name"
+                required
+            >
+
+            <label>Phone Number</label>
+            <input
+                type="text"
+                name="student_phone"
+                placeholder="Enter Phone Number"
+                maxlength="10"
+                 oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                required
+            >
+
+            <label>Branch</label>
+            <input
+                type="text"
+                name="student_branch"
+                placeholder="Enter Branch"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                placeholder="Create Password"
+                required
+            >
+
+            <button type="submit">
+                Register Student
+            </button>
+
+        </form>
+
+        <br>
+
+      <a href="/logout">
+    <button class="secondary-btn">
+        Dashboard
+    </button>
+</a>
+
+    </div>
+
+</div>
+
+<button type="submit">
+    Register Student
+</button>
+
+<br><br>
+
+<a href="/dashboard">
+    <button class="secondary-btn">
+        Dashboard
+    </button>
+</a>
+
+</body>
+</html>
