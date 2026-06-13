@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add To Cart</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Add To Cart</h1>
+
+        <p class="subtitle">
+            Add Product to Shopping Cart
+        </p>
+
+        <form action="/addtocartrecord" method="POST">
+
+            <label>Product ID</label>
+            <input
+                type="number"
+                name="product_id"
+                required>
+
+            <label>Quantity</label>
+            <input
+                type="number"
+                name="quantity"
+                required>
+
+            <button type="submit">
+                Add To Cart
+            </button>
+
+            <br><br>
+
+            <a href="/customershopping">
+                <button type="button" class="secondary-btn">
+                    Customer Dashboard
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

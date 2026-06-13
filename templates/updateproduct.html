@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Product</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Update Product</h1>
+
+        <p class="subtitle">
+            Modify Product Details
+        </p>
+
+        <form action="/updateproductrecord" method="POST">
+
+            <label>Product ID</label>
+            <input
+                type="number"
+                name="product_id"
+                placeholder="Enter Product ID"
+                required>
+
+            <label>New Price</label>
+            <input
+                type="number"
+                name="product_price"
+                placeholder="Enter New Price"
+                required>
+
+            <label>New Quantity</label>
+            <input
+                type="number"
+                name="product_quantity"
+                placeholder="Enter New Quantity"
+                required>
+
+            <button type="submit">
+                Update Product
+            </button>
+
+            <br><br>
+
+            <a href="/storemanagement">
+                <button type="button" class="secondary-btn">
+                    Dashboard
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

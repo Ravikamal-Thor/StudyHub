@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <h1>🛒 E-Commerce System</h1>
+        <p>Product Management Dashboard</p>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <a href="/addproduct" class="card">
+            <h2>➕</h2>
+            <h3>Add Product</h3>
+            <p>Add new products</p>
+        </a>
+
+        <a href="/getproducts" class="card">
+            <h2>📦</h2>
+            <h3>View Products</h3>
+            <p>See all products</p>
+        </a>
+
+        <a href="/findproduct" class="card">
+            <h2>🔍</h2>
+            <h3>Find Product</h3>
+            <p>Search product by ID</p>
+        </a>
+
+        <a href="/updateproduct" class="card">
+            <h2>✏️</h2>
+            <h3>Update Product</h3>
+            <p>Modify product details</p>
+        </a>
+
+        <a href="/buyproduct" class="card">
+    <h2>🛍️</h2>
+    <h3>Buy Product</h3>
+    <p>Purchase available products</p>
+</a>
+        <a href="/deleteproduct" class="card">
+            <h2>🗑️</h2>
+            <h3>Delete Product</h3>
+            <p>Remove products from database</p>
+        </a>
+
+        <a href="/dashboard" class="card">
+            <h2>🏠</h2>
+            <h3>Main Dashboard</h3>
+            <p>Back to Student Management</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

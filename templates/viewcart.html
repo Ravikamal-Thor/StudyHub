@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Cart</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="table-container">
+
+    <h1>Shopping Cart</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>Cart ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+
+        {% for item in cart_items %}
+
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/customershopping">
+        <button class="secondary-btn">
+            Customer Dashboard
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>

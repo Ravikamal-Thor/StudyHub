@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Orders</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="table-container">
+
+    <h1>Order History</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>Order ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+        </tr>
+
+        {% for order in orders %}
+
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/customershopping">
+        <button class="secondary-btn">
+            Customer Dashboard
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>

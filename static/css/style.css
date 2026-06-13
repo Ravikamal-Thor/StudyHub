@@ -374,3 +374,84 @@ tr:hover{
 .nav-links a:hover{
     color:#93c5fd;
 }
+/* E-COMMERCE IMPROVEMENTS */
+
+.dashboard-header h1{
+    color:#1e40af;
+    font-size:38px;
+}
+
+.dashboard-header p{
+    color:#6b7280;
+    margin-top:10px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#2563eb;
+}
+
+.card p{
+    color:#666;
+}
+
+table{
+    border-radius:15px;
+    overflow:hidden;
+}
+
+th{
+    background:#2563eb;
+}
+
+.form-card{
+    max-width:600px;
+}
+
+.result-card{
+    max-width:700px;
+}
+
+button{
+    background:#2563eb;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.secondary-btn{
+    background:#6b7280;
+}
+
+.secondary-btn:hover{
+    background:#4b5563;
+}
+.dashboard-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    min-height:220px;
+    text-align:center;
+    text-decoration:none;
+}

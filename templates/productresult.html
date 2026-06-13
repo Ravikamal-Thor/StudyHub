@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="result-container">
+
+    <div class="result-card">
+<div class="result-container">
+
+<div class="result-card">
+
+<h1>Product Information</h1>
+
+{% if product %}
+
+<p><b>ID:</b> {{ product[0] }}</p>
+<p><b>Name:</b> {{ product[1] }}</p>
+<p><b>Price:</b> {{ product[2] }}</p>
+<p><b>Category:</b> {{ product[3] }}</p>
+<p><b>Quantity:</b> {{ product[4] }}</p>
+
+{% else %}
+
+<h2 class="not-found">
+Product Not Found
+</h2>
+
+{% endif %}
+
+<br>
+
+<a href="/findproduct">
+<button>
+Search Again
+</button>
+</a>
+
+</div>
+
+</div>
+    </div>
+
+</div>
+
+</body>
+</html>

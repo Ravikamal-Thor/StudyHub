@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Product</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Buy Product</h1>
+
+        <p class="subtitle">
+            Purchase Product From Store
+        </p>
+
+        <form action="/buyproductrecord" method="POST">
+
+            <label>Product ID</label>
+
+            <input
+                type="number"
+                name="product_id"
+                placeholder="Enter Product ID"
+                required>
+
+            <label>Quantity</label>
+
+            <input
+                type="number"
+                name="buy_quantity"
+                placeholder="Enter Quantity"
+                required>
+
+            <button type="submit">
+                Buy Product
+            </button>
+
+            <br><br>
+
+            <a href="/customershopping">
+                <button type="button" class="secondary-btn">
+                    Customer Dashboard
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

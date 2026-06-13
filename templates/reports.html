@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <h1>📊 Reports Dashboard</h1>
+        <p>System Statistics and Analytics</p>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h2>🎓</h2>
+            <h3>Total Students</h3>
+            <p>{{ total_students }}</p>
+        </div>
+
+        <div class="card">
+            <h2>🛒</h2>
+            <h3>Total Products</h3>
+            <p>{{ total_products }}</p>
+        </div>
+
+        <div class="card">
+            <h2>📦</h2>
+            <h3>Total Orders</h3>
+            <p>Coming Soon</p>
+        </div>
+
+        <div class="card">
+            <h2>💰</h2>
+            <h3>Total Revenue</h3>
+            <p>Coming Soon</p>
+        </div>
+
+        <a href="/dashboard" class="card">
+            <h2>🏠</h2>
+            <h3>Main Dashboard</h3>
+            <p>Return to Home</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

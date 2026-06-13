@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Shopping</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <h1>👤 Customer Shopping</h1>
+        <p>Purchase Products and Manage Orders</p>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <a href="/getproducts" class="card">
+            <h2>🛍️</h2>
+            <h3>Browse Products</h3>
+            <p>View available products</p>
+        </a>
+
+        <a href="/addtocart" class="card">
+            <h2>🛒</h2>
+            <h3>Add To Cart</h3>
+            <p>Add products to shopping cart</p>
+        </a>
+
+        <a href="/viewcart" class="card">
+            <h2>📦</h2>
+            <h3>View Cart</h3>
+            <p>See products in your cart</p>
+        </a>
+
+        <a href="/buyproduct" class="card">
+            <h2>💳</h2>
+            <h3>Buy Product</h3>
+            <p>Purchase selected products</p>
+        </a>
+
+        <a href="/vieworders" class="card">
+            <h2>📜</h2>
+            <h3>View Orders</h3>
+            <p>See previous purchases</p>
+        </a>
+
+        <a href="/dashboard" class="card">
+            <h2>🏠</h2>
+            <h3>Main Dashboard</h3>
+            <p>Return to home page</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
