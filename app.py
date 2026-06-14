@@ -328,9 +328,13 @@ def buyproductrecord():
 
     cursor = db.cursor()
 
-    # Get current quantity
+    # Check stock
     cursor.execute(
-        "SELECT product_quantity FROM products WHERE product_id=%s",
+        """
+        SELECT product_name, product_price, product_quantity
+        FROM products
+        WHERE product_id=%s
+        """,
         (product_id,)
     )
 
@@ -338,10 +342,14 @@ def buyproductrecord():
 
     if product:
 
-        current_quantity = product[0]
+        product_name = product[0]
+        product_price = float(product[1])
+        current_quantity = int(product[2])
+
 
         if current_quantity >= buy_quantity:
 
+            # Update stock
             new_quantity = current_quantity - buy_quantity
 
             cursor.execute(
@@ -353,19 +361,42 @@ def buyproductrecord():
                 (new_quantity, product_id)
             )
 
+            # Calculate total price
+            total_amount = product_price * buy_quantity
+
+            # Save order
+            cursor.execute(
+                """
+                INSERT INTO orders
+                (product_id, product_name, quantity, total_price)
+                VALUES(%s,%s,%s,%s)
+                """,
+                (
+                    product_id,
+                    product_name,
+                    buy_quantity,
+                    total_amount
+                )
+            )
+
             db.commit()
 
             message = "Product Purchased Successfully"
 
         else:
+
             message = "Insufficient Stock"
 
     else:
+
         message = "Product Not Found"
 
     cursor.close()
 
-    return message
+    return render_template(
+        "purchase_success.html",
+        message=message
+    )
 
 @app.route("/studentservices")
 def studentservices():
@@ -479,7 +510,195 @@ def addtocartrecord():
 
     cursor.close()
 
-    return message
+    return render_template(
+    "cart_success.html",
+    message=message
+)
+
+   
+
+@app.route("/blogdashboard")
+def blogdashboard():
+    return render_template("blog_dashboard.html")
+
+@app.route("/addpost")
+def addpost():
+    return render_template("add_post.html")
+@app.route("/savepost", methods=["POST"])
+def savepost():
+
+    title = request.form["title"]
+    content = request.form["content"]
+    author = request.form["author"]
+
+    cursor = db.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO blog_posts
+        (title, content, author)
+        VALUES(%s,%s,%s)
+        """,
+        (title, content, author)
+    )
+
+    db.commit()
+    cursor.close()
+
+    return render_template("post_success.html")
+
+@app.route("/viewposts")
+def viewposts():
+
+    cursor = db.cursor()
+
+    cursor.execute(
+        "SELECT * FROM blog_posts"
+    )
+
+    posts = cursor.fetchall()
+
+    cursor.close()
+
+    return render_template(
+        "view_posts.html",
+        posts=posts
+    )
+@app.route("/postdetails/<int:post_id>")
+def postdetails(post_id):
+
+    cursor = db.cursor()
+
+    # Get blog post
+    cursor.execute(
+        "SELECT * FROM blog_posts WHERE post_id=%s",
+        (post_id,)
+    )
+
+    post = cursor.fetchone()
+
+    # Get comments for this post
+    cursor.execute(
+        "SELECT * FROM comments WHERE post_id=%s",
+        (post_id,)
+    )
+
+    comments = cursor.fetchall()
+    cursor.execute("SELECT * FROM replies")
+    replies = cursor.fetchall()
+    cursor.close()
+    return render_template(
+    "post_details.html",
+    post=post,
+    comments=comments,
+    replies=replies
+)
+
+@app.route("/updatepost")
+def updatepost():
+    return render_template("updatepost.html")
+
+@app.route("/updatepostrecord", methods=["POST"])
+def updatepostrecord():
+
+    post_id = request.form["post_id"]
+    title = request.form["title"]
+    content = request.form["content"]
+    author = request.form["author"]
+
+    cursor = db.cursor()
+
+    cursor.execute(
+        """
+        UPDATE blog_posts
+        SET title=%s,
+            content=%s,
+            author=%s
+        WHERE post_id=%s
+        """,
+        (title, content, author, post_id)
+    )
+
+    db.commit()
+
+    cursor.close()
+
+    return render_template("update_post_success.html")
+
+@app.route("/deletepost")
+def deletepost():
+    return render_template("deletepost.html")
+
+@app.route("/deletepostrecord", methods=["POST"])
+def deletepostrecord():
+
+    post_id = request.form["post_id"]
+
+    cursor = db.cursor()
+
+    cursor.execute(
+        """
+        DELETE FROM blog_posts
+        WHERE post_id=%s
+        """,
+        (post_id,)
+    )
+
+    db.commit()
+
+    cursor.close()
+
+    return render_template("delete_post_success.html")
+
+@app.route("/savecomment", methods=["POST"])
+def savecomment():
+
+    post_id = request.form["post_id"]
+    username = request.form["username"]
+    comment = request.form["comment"]
+
+    cursor = db.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO comments
+        (post_id, username, comment)
+        VALUES(%s, %s, %s)
+        """,
+        (post_id, username, comment)
+    )
+
+    db.commit()
+
+    cursor.close()
+
+    return redirect(f"/postdetails/{post_id}")
+
+
+@app.route("/savereply", methods=["POST"])
+def savereply():
+
+    comment_id = request.form["comment_id"]
+    post_id = request.form["post_id"]
+    username = request.form["username"]
+    reply = request.form["reply"]
+
+    cursor = db.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO replies
+        (comment_id, username, reply)
+        VALUES(%s,%s,%s)
+        """,
+        (comment_id, username, reply)
+    )
+
+    db.commit()
+
+    cursor.close()
+
+    return redirect(f"/postdetails/{post_id}")
 
 if __name__ == "__main__":
     app.run(debug=True)

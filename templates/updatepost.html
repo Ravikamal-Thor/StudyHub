@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Post</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Update Blog Post</h1>
+
+        <p class="subtitle">
+            Modify Existing Post Details
+        </p>
+
+        <form action="/updatepostrecord" method="POST">
+
+            <label>Post ID</label>
+            <input type="number"
+                   name="post_id"
+                   required>
+
+            <label>New Title</label>
+            <input type="text"
+                   name="title"
+                   required>
+
+            <label>New Content</label>
+            <textarea name="content"
+                      rows="6"
+                      required></textarea>
+
+            <label>Author Name</label>
+            <input type="text"
+                   name="author"
+                   required>
+
+            <button type="submit">
+                Update Post
+            </button>
+
+            <br><br>
+
+            <a href="/blogdashboard">
+                <button type="button" class="secondary-btn">
+                    Blog Dashboard
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

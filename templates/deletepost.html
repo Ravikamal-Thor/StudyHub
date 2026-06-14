@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Blog Post</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Delete Blog Post</h1>
+
+        <p class="subtitle">
+            Remove Blog Post by ID
+        </p>
+
+        <form action="/deletepostrecord" method="POST">
+
+            <label>Post ID</label>
+
+            <input type="number"
+                   name="post_id"
+                   required>
+
+            <button type="submit">
+                Delete Post
+            </button>
+
+            <br><br>
+
+            <a href="/blogdashboard">
+                <button type="button" class="secondary-btn">
+                    Blog Dashboard
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

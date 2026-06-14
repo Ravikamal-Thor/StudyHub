@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Blog Post Details</title>
+
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+```
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+```
+<div class="form-card">
+
+    <!-- Title -->
+    <h1>{{ post[1] }}</h1>
+
+    <!-- Author -->
+    <p class="subtitle">
+        Written by {{ post[3] }}
+    </p>
+
+    <hr>
+
+    <!-- Content -->
+    <h3>Content</h3>
+
+    <p style="
+        text-align: justify;
+        line-height: 1.8;
+        color: #444;
+        font-size: 17px;
+    ">
+        {{ post[2] }}
+    </p>
+
+    <hr>
+
+    <!-- Published Date -->
+    <p>
+        <strong>Published On:</strong>
+        {{ post[4] }}
+    </p>
+
+    <hr>
+
+    <!-- Comment Form -->
+    <h2 class="comment-title">
+        💬 Leave a Comment
+    </h2>
+
+    <form action="/savecomment" method="POST">
+
+        <input
+            type="hidden"
+            name="post_id"
+            value="{{ post[0] }}">
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Enter your name"
+            required>
+
+        <label>Your Comment</label>
+
+        <textarea
+            name="comment"
+            rows="5"
+            placeholder="Write your thoughts here..."
+            required></textarea>
+
+        <button type="submit">
+            Post Comment
+        </button>
+
+    </form>
+
+    <hr>
+
+    <!-- Previous Comments -->
+    <h2 class="comment-title">
+        Previous Comments
+    </h2>
+
+    {% for comment in comments %}
+
+    <div class="comment-box">
+
+        <h4>{{ comment[2] }}</h4>
+
+        <p>{{ comment[3] }}</p>
+
+        <small>{{ comment[4] }}</small>
+
+        <br><br>
+
+        <button
+            type="button"
+            class="reply-btn"
+            onclick="toggleReplyForm('{{ comment[0] }}')">
+
+            Reply
+
+        </button>
+
+        <!-- Reply Form -->
+
+        <div
+            id="reply-form-{{ comment[0] }}"
+            class="reply-form"
+            style="display:none; margin-top:15px;">
+
+            <form action="/savereply" method="POST">
+
+                <input
+                    type="hidden"
+                    name="comment_id"
+                    value="{{ comment[0] }}">
+
+                <input
+                    type="hidden"
+                    name="post_id"
+                    value="{{ post[0] }}">
+
+                <label>Your Name</label>
+
+                <input
+                    type="text"
+                    name="username"
+                    required>
+
+                <label>Your Reply</label>
+
+                <textarea
+                    name="reply"
+                    rows="3"
+                    required></textarea>
+
+                <button type="submit">
+                    Submit Reply
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Display Replies -->
+
+        {% for reply in replies %}
+
+            {% if reply[1] == comment[0] %}
+
+                <div class="reply-box">
+
+                    <h5>↳ {{ reply[2] }}</h5>
+
+                    <p>{{ reply[3] }}</p>
+
+                </div>
+
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+    <br>
+
+    {% endfor %}
+
+    <br>
+
+    <!-- Buttons -->
+
+    <div class="button-group">
+
+        <a href="/viewposts">
+            <button type="button" class="secondary-btn">
+                Back to Posts
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/blogdashboard">
+            <button type="button" class="secondary-btn">
+                Blog Dashboard
+            </button>
+        </a>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<script>
+
+function toggleReplyForm(commentId){
+
+    let form = document.getElementById(
+        "reply-form-" + commentId
+    );
+
+    if(form.style.display === "none"){
+        form.style.display = "block";
+    }
+    else{
+        form.style.display = "none";
+    }
+
+}
+
+</script>
+
+</body>
+</html>

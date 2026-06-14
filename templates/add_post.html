@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Blog Post</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Add Blog Post</h1>
+
+        <p class="subtitle">
+            Create a New Blog Article
+        </p>
+
+        <form action="/savepost" method="POST">
+
+            <label>Title</label>
+            <input
+                type="text"
+                name="title"
+                placeholder="Enter Post Title"
+                required>
+
+            <label>Content</label>
+            <textarea
+                name="content"
+                rows="6"
+                placeholder="Write your blog content here..."
+                required></textarea>
+
+            <label>Author Name</label>
+            <input
+                type="text"
+                name="author"
+                placeholder="Enter Author Name"
+                required>
+
+            <button type="submit">
+                Publish Post
+            </button>
+
+            <br><br>
+
+            <a href="/blogdashboard">
+                <button type="button" class="secondary-btn">
+                    Dashboard
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

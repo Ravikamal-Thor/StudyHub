@@ -74,13 +74,15 @@ price DECIMAL(10,2)
 ---
 
 CREATE TABLE orders (
-order_id INT AUTO_INCREMENT PRIMARY KEY,
-product_id INT,
-product_name VARCHAR(100),
-quantity INT,
-total_amount DECIMAL(10,2),
-order_date DATETIME DEFAULT CURRENT_TIMESTAMP
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    product_name VARCHAR(100),
+    quantity INT,
+    total_amount DECIMAL(10,2),
+    order_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+
 
 ---
 
@@ -149,3 +151,27 @@ DESC studentdetails;
 DESC products;
 DESC cart;
 DESC orders;
+
+
+CREATE TABLE blog_posts (
+    post_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200),
+    content TEXT,
+    author VARCHAR(100),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE comments (
+    comment_id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT,
+    username VARCHAR(100),
+    comment TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE replies(
+    reply_id INT AUTO_INCREMENT PRIMARY KEY,
+    comment_id INT,
+    username VARCHAR(100),
+    reply TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+show tables;

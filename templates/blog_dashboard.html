@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <h1>📝 Blog Management</h1>
+        <p>Manage Blog Posts</p>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <a href="/addpost" class="card">
+            <h2>➕</h2>
+            <h3>Add Post</h3>
+            <p>Add new blog Post</p>
+        </a>
+
+        <a href="/viewposts" class="card">
+            <h2>📖</h2>
+            <h3>View Posts</h3>
+            <p>View blog Posts</p>
+        </a>
+
+        <a href="/updatepost" class="card">
+        <h2>✏️</h2>
+        <h3>Update Post</h3>
+        <p>Update Existing blog Post</p>
+      </a>
+
+        <a href="/deletepost" class="card">
+            <h2>🗑️</h2>
+            <h3>Delete Post</h3>
+            <p>Remove blog Post</p>
+        </a>
+
+        <a href="/dashboard" class="card">
+    <h2>🏠</h2>
+    <h3>Main Dashboard</h3>
+    <p>Return to Home </p>
+</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

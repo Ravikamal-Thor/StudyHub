@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Blog Posts</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="table-container">
+
+    <h1>View Blog Posts</h1>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+
+        {% for post in posts %}
+
+        <tr>
+
+            <td>{{ post[0] }}</td>
+            <td>{{ post[1] }}</td>
+            <td>{{ post[3] }}</td>
+            <td>{{ post[4] }}</td>
+
+            <td>
+                <a href="/postdetails/{{ post[0] }}">
+                    <button class="secondary-btn">
+                        Read More
+                    </button>
+                </a>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br><br>
+
+    <a href="/blogdashboard">
+        <button class="secondary-btn">
+            Blog Dashboard
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>

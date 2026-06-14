@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Status</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>🛍️ Purchase Status</h1>
+
+        <p class="subtitle">
+            {{ message }}
+        </p>
+
+        <br>
+
+        <a href="/customershopping">
+            <button type="button" class="secondary-btn">
+                Customer Shopping
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/getproducts">
+            <button type="button">
+                Browse Products
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/dashboard">
+            <button type="button" class="secondary-btn">
+                Main Dashboard
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
