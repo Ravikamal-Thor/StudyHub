@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, redirect
+import os
 import mysql.connector
 
 app = Flask(__name__)
 
-db = mysql.connector.connect(
-    host="localhost",
+mysql.connector.connect(
+    host=" reseau.proxy.rlwy.net",
     user="root",
-    password="tiger",
-    database="studentdb"
+    password="pDxbDmrFEnZRkdlXKWCjAtixtSJkyHJA",
+    database="studentdb",
+    port=33159 
 )
-
 @app.route("/")
 def home():
     return render_template("login.html")
