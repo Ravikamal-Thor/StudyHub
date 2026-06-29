@@ -7,9 +7,9 @@ app = Flask(__name__)
 mysql.connector.connect(
     host="reseau.proxy.rlwy.net",
     user="root",
-    password="pDxbDmrFEnZRkdlXKWCjAtixtSJkyHJA",
+    password="TiZhZCewJacxhhhzJXMmrepioEnwjrcJ",
     database="studentdb",
-    port=33159 
+    port=31643 
 )
 @app.route("/")
 def home():
